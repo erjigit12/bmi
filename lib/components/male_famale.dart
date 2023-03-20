@@ -9,6 +9,7 @@ class MaleFemale extends StatelessWidget {
     required this.icon,
     required this.text,
   }) : super(key: key);
+
   final IconData icon;
   final String text;
   final bool isfemale;

@@ -24,7 +24,7 @@ class _HomePageState extends State<HomePage> {
   double height = 180.0;
   int weight = 60;
   int age = 28;
-  bool isfamale = false;
+  bool isfamale = true;
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +40,7 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: AppColors.backgroundColor,
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(10.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -51,13 +51,13 @@ class _HomePageState extends State<HomePage> {
                     child: InkWell(
                       onTap: () {
                         setState(() {
-                          isfamale = false;
+                          isfamale = true;
                         });
                       },
                       child: MaleFemale(
                         icon: Icons.male,
                         text: AppText.male,
-                        isfemale: !isfamale,
+                        isfemale: isfamale,
                       ),
                     ),
                   ),
@@ -66,13 +66,13 @@ class _HomePageState extends State<HomePage> {
                     child: InkWell(
                       onTap: () {
                         setState(() {
-                          isfamale = true;
+                          isfamale = false;
                         });
                       },
                       child: MaleFemale(
                         icon: Icons.female,
                         text: AppText.female,
-                        isfemale: isfamale,
+                        isfemale: !isfamale,
                       ),
                     ),
                   ),
@@ -136,27 +136,22 @@ class _HomePageState extends State<HomePage> {
         onTap: () {
           final result = weight / pow(height / 100, 2);
           if (result < 18.5) {
-            // print('Сенин салмагын аз экен. Кобуроок же');
             showMyDialog(
               text: 'Сенин салмагын аз экен. Кобуроок же',
               context: context,
             );
           } else if (result > 18.5 && result < 24.9) {
-            // print('Сенин салмагын жакшы. Молодец.');
             showMyDialog(
               text: 'Сенин салмагын жакшы. Молодец.',
               context: context,
             );
           } else if (result > 24.9) {
-            // print(
-            //     'Сенде ашыкча салмак коп. Озуно жакшы кара. Спорт менен алектен');
             showMyDialog(
               text:
                   'Сенде ашыкча салмак коп. Озуно жакшы кара. Спорт менен алектен',
               context: context,
             );
           } else {
-            // print('Маалымат алууда катачылыктар бар');
             showMyDialog(
               text: 'Маалымат алууда катачылыктар бар',
               context: context,

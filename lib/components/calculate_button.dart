@@ -8,6 +8,7 @@ class CalculateButton extends StatelessWidget {
     Key? key,
     this.onTap,
   }) : super(key: key);
+
   final void Function()? onTap;
 
   @override
